@@ -1,9 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const Server = require("socket.io").Server;
 const { v4: uuid } = require("uuid");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 80;
+
+app.use(cors());
 
 app.get("/", function (_, res) {
   res.send("Server is running on port " + PORT);
